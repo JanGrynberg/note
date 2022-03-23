@@ -10,8 +10,9 @@ function dump($data)
   echo '<br/><div 
     style="
       display: inline-block;
-      padding: 0 10px;
-      border: 1px solid gray;
+      padding: 1px 10px;
+      margin: 5px;
+      border: 1px dashed gray;
       background: lightgray;
     "
   >

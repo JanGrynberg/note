@@ -16,8 +16,8 @@
     <div class="container">
       <div class="menu">
         <ul>
-          <li><a href="/">Strona główna</a></li>
-          <li><a href="/?action=create">Nowa notatka</a></li>
+          <li><a href="/note">Strona główna</a></li>
+          <li><a href="/note/?action=create">Nowa notatka</a></li>
         </ul>
       </div>
 
@@ -27,7 +27,7 @@
     </div>
 
     <div class="footer">
-      <p>Notatki - projekt w kursie PHP</p>
+      <p>Projekt NOTE</p>
     </div>
   </div>
 </body>
