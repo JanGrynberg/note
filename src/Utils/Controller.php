@@ -9,32 +9,32 @@ require_once("src/View.php");
 class Controller
 {
     private const DEFAULT_ACTION = 'list';
-    private array $getData;
-    private array $postData;
+    private array $request;
+    private View $view;
 
-    public function __construct(array $getData, array $postData){
-        $this->$getData=$getData;
-        $this->$postData =$postData;
+    public function __construct(array $request){
+        $this->$request = $request;
+        $this->view = new View();
 
     }
+
+  
 public function run(): void
 {
-    $action = $this->$getData['action'] ?? self::DEFAULT_ACTION;
-
-
-    $view = new View();
+    
     $viewParams = [];
 
-    switch($action){
+    switch($this->action()){
         case 'create':
           $page = 'create';
           $created = false;
-        
-          if($this->$postData)){
+          
+          $data - $this->getRequestPost();
+          if(!empty($data)){
             $created = true;
             $viewParams=[
-              'title' => $this->$postData['title'],
-              'description' => $this->$postData['description']
+              'title' => $data['title'],
+              'description' => $data['description']
             ]; 
          }
          
@@ -51,6 +51,17 @@ public function run(): void
         $viewParams['resultList'] = "wyświetlamy notatki";
           break;
       }
-      $view->render($page, $viewParams);
+      $this->view->render($page, $viewParams);
+}
+private function action(): string
+{
+  $data =$this->getRequestGet();
+  return $data['action'] ?? self::DEFAULT_ACTION;
+}
+private function getRequestPost(): array {
+  return $this->request['post'];
+}
+private function getRequestGet(): array {
+  return $this->request['get'];
 }
 }

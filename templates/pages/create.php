@@ -7,7 +7,7 @@
     <div>Tytuł: <?php echo $params['title'] ?></div>
     <div>Treść: <?php echo $params['description'] ?></div>
   <div>
-    <?php else: ?>
+    <?php else : ?>
     <from class="note-form" action="/note/?action=create" method="post">
       <ul>
         <li>
@@ -24,6 +24,6 @@
         </li>
       </ul>
     </from>
-    <?php endif;?>
+    <?php endif; ?>
   </div>
 </div>
